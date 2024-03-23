@@ -9552,6 +9552,7 @@
     for (let key of Object.keys(participants)) {
       if (data.participants.filter((p) => p.id == key).length == 0) {
         _discord_remove_participant(participants[key].raylib_id);
+        delete participants[key];
       }
     }
     data.participants.forEach((p) => {
