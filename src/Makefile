@@ -20,7 +20,7 @@ OBJ=$(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES)) ./external/libraylib.a
 
 game.js: $(OBJ)
 	mkdir -p $(DEST)
-	$(CC) -o $(DEST)/$@ $^ $(CFLAGS) -sEXPORTED_FUNCTIONS=_discord_set_channel,_discord_set_server,_main -sEXPORTED_RUNTIME_METHODS=ccall,cwrap --js-library wasm-library.js
+	$(CC) -o $(DEST)/$@ $^ $(CFLAGS) -sEXPORTED_FUNCTIONS=_discord_set_channel,_discord_set_server,_discord_add_participant,_discord_remove_participant,_main -sEXPORTED_RUNTIME_METHODS=ccall,cwrap --js-library wasm-library.js
 
 clean:
 	rm *.o
